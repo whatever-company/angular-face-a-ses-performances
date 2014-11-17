@@ -1,0 +1,77 @@
+<h1>Twittr</h1>
+
+<!-- filter tweets -->
+<div>
+	<input
+		class="form-control"
+		type="text"
+		placeholder="Filter tweet"
+		data-ng-model="textFilter"
+		data-ng-change="filterTweets()"
+	/>
+</div>
+
+<!-- tweets list -->
+ <ol class="tweets">
+	<li
+	 	class="tweet"
+	 	data-ng-repeat="tweet in tweets | filter:tweetFilter track by tweet.id"
+	 	data-ng-controller="TweetCtrl"
+	 >
+		<img
+			class="tweet-thumbnail"
+			data-ng-src="{{ (tweet.retweeted_status || tweet).user.profile_image_url }}"
+			alt="{{ (tweet.retweeted_status || tweet).user.name }}"
+		/>
+
+	 	<div class="tweet-wrapper">
+	 		<!-- tweet author and date -->
+			<p>
+				<span
+					class="glyphicon glyphicon-retweet"
+					data-ng-show="tweet.retweeted_status"
+				></span>
+
+				<b data-app-author="(tweet.retweeted_status || tweet).user"></b>
+
+				<span class="desc">
+					{{ tweet.created_at | timeSince }}
+				</span>
+			</p>
+
+	 		<!-- tweet content -->
+			<p>{{ getTweetContent(tweet) }}</p>
+
+			<!-- tweet actions and stats -->
+			<div>
+				<span
+					class="tweet-action glyphicon glyphicon-arrow-left"
+					data-ng-click="showReply = !showReply"
+				></span>
+
+				<span class="tweet-action glyphicon glyphicon-retweet">
+					{{ tweet.retweet_count }}
+				</span>
+
+				<span class="tweet-action glyphicon glyphicon-star">
+					{{ tweet.favorite_count }}
+				</span>
+			</div>
+
+			<!-- reply form -->
+			<form
+				class="tweet-reply"
+				data-ng-show="showReply"
+			>
+				<fieldset data-ng-init="initReply()">
+					<legend>Reply</legend>
+
+					<textarea
+						class="form-control"
+						data-ng-model="reply"
+					></textarea>
+				</fieldset>
+			</form>
+	 	</div>
+	</li>
+</ol>

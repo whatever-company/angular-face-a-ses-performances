@@ -1,0 +1,33 @@
+/* app css stylesheet */
+
+.tweets {
+	padding-left: 0;
+}
+
+.tweets .tweet {
+	margin: 24px 0;
+	margin-left: -25px;
+	padding-left: 50px;
+}
+
+.tweets .tweet .tweet-thumbnail {
+	float: left;
+}
+
+.tweets .tweet .tweet-wrapper {
+	margin-left: 60px;
+}
+
+.tweets .tweet .tweet-action {
+	cursor: pointer;
+	margin-right: 30px;
+}
+
+.tweets .tweet .tweet-reply {
+	margin: 15px 0 45px;
+}
+
+
+.desc {
+	color: #CCCCCC;
+}

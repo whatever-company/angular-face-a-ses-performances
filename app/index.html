@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>My AngularJS App</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" href="app.css">
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="well monitor" data-ng-controller="MonitorCtrl">
+				<div class="row">
+					<div class="col-md-6">
+						Longest digest: <b data-app-monitor-digest="max"></b> <br />
+						Last digest: <b data-app-monitor-digest="true"></b> <br />
+						Number of watchers: <b data-app-monitor-watchers="true"></b> <br />
+						<button class="btn" data-ng-click="digest()">Digest</button>
+					</div>
+					<div class="col-md-6">
+						Today is:
+						<input
+							type="date"
+							data-ng-model="Config.now"
+						/>
+					</div>
+				</div>
+
+			</div>
+
+			<div data-ng-view></div>
+		</div>
+
+		<script src="vendor/angular1.3/angular.js"></script>
+		<!-- <script src="bower_components/angular/angular.js"></script> -->
+		<script src="bower_components/angular-route/angular-route.js"></script>
+		<script src="bower_components/moment/moment.js"></script>
+		<script src="bower_components/oauth-js/dist/oauth.js"></script>
+		<script src="app.js"></script>
+		<script src="components/author/author.js"></script>
+		<script src="components/monitor/monitor.js"></script>
+		<script src="components/timeSince/timeSince.js"></script>
+		<script src="components/twittr/twittr.js"></script>
+		<script src="feed/feed.js"></script>
+
+		<script type="text/javascript">
+			console.time('bootstrap');
+			window.angular.bootstrap(document.body, ['app']);
+			console.timeEnd('bootstrap');
+		</script>
+	</body>
+</html>
