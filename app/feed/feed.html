@@ -27,8 +27,8 @@
 	 >
 		<img
 			class="tweet-thumbnail"
-			data-ng-src="{{ (tweet.retweeted_status || tweet).user.profile_image_url }}"
-			alt="{{ (tweet.retweeted_status || tweet).user.name }}"
+			data-ng-src="{{ ::(tweet.retweeted_status || tweet).user.profile_image_url }}"
+			alt="{{ ::(tweet.retweeted_status || tweet).user.name }}"
 		/>
 
 	 	<div class="tweet-wrapper">
@@ -47,7 +47,7 @@
 			</p>
 
 	 		<!-- tweet content -->
-			<p>{{ getTweetContent(tweet) }}</p>
+			<p>{{ ::getTweetContent(tweet) }}</p>
 
 			<!-- tweet actions and stats -->
 			<div>
