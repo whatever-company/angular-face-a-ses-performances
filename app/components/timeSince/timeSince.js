@@ -2,15 +2,15 @@
 
 angular.module('app.timeSince', [])
 
-.filter('timeSince', function (Config, Monitor) {
-	function filter (input) {
+.filter('timeSince', function (Monitor) {
+	function filter (input, now) {
 		// let's waste some time
 		Monitor.sleep(1);
 
-		return window.moment(new Date(input)).from(Config.now || window.moment());
+		return window.moment(new Date(input)).from(now || window.moment());
 	}
 
-	filter.$stateful = true;
+	// filter.$stateful = true;
 
 	return filter;
 });
