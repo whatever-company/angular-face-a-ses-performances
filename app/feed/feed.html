@@ -42,7 +42,7 @@
 				<b data-app-author="(tweet.retweeted_status || tweet).user"></b>
 
 				<span class="desc">
-					{{ tweet.created_at | timeSince }}
+					{{ tweet.created_at | timeSince : Config.now }}
 				</span>
 			</p>
 

@@ -16,7 +16,9 @@ angular.module('app.feed', [
 	});
 })
 
-.controller('FeedCtrl', function($scope, Twittr) {
+.controller('FeedCtrl', function($scope, Config, Twittr) {
+	$scope.Config = Config;
+
 	$scope.textFilter = '';
 	$scope.tweetFilter = null;
 
